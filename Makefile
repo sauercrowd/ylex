@@ -1,10 +1,12 @@
-a.out: lex.yy.c
-	gcc lex.yy.c -lfl
+all: a.out
 
-lex.yy.c: test.l
-	flex test.l
+a.out: lex.yy.c
+	gcc -g lex.yy.c -lfl
+
+lex.yy.c: json.l
+	flex json.l
 
 clean:
 	rm -rf lex.yy.c a.out
 
-.PHONY: clean
+.PHONY: all clean
